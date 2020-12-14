@@ -1,0 +1,8 @@
+add_markers	add_markers
+add_minimap	add_minimap
+get_ascend	get_ascend
+get_descend	get_descend
+map_and_data	map_and_data
+marklifemap	marklifemap
+newmap	newmap
+solr_request	solr_request

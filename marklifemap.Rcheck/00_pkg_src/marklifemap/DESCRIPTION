@@ -1,0 +1,27 @@
+Package: marklifemap
+Title: Add Markers On Lifemap
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Cassandre",
+           family = "Heritier--Tellier",
+           role = c("aut", "cre"),
+           email = "cassandre.heritier--tellier@etu.univ-lyon1.fr"),
+    person(given = "Thomas",
+           family = "Catel",
+           role = "aut",
+           email = "thomas.catel@etu.univ-lyon1.fr"),
+    person(given = "Joe",
+           family = "Ueda",
+           role = "aut",
+           email = "joe.ueda@etu.univ-lyon1.fr"))
+Author: Testhor
+Maintainer: Test <test@testmail.tes>
+Description: Add markers on Lifemap choosed by users, on particular taxons.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: leaflet, jsonlite
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+NeedsCompilation: no
+Packaged: 2020-12-14 09:28:11 UTC; cassandre

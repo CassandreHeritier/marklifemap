@@ -1,0 +1,8 @@
+add_markers             Add markers
+add_minimap             add_minimap adds a minimap
+get_ascend              get_ascend
+get_descend             get_descend
+map_and_data            Map and data
+marklifemap             Add markers on the lifemap
+newmap                  Newmap
+solr_request            Solr request
