@@ -14,7 +14,7 @@ add_markers(
 )
 }
 \arguments{
-\item{marks}{data.frame of marks to view on the lifemap, given by the user;
+\item{marks}{data.frame of markers to view on the lifemap given by the user;
 NULL by default}
 
 \item{lifemap}{the map generated}
@@ -28,12 +28,12 @@ NULL by default}
 \item{cluster}{if user wants cluster ; "none" by default}
 }
 \value{
-mark_lifemap
+mark_lifemap the lifemap with markers
 }
 \description{
-Add of markers on the lifemap, with various options for form, cluster and popup
+Function to add markers on the lifemap, with various options for form, cluster and popup.
 }
 \examples{
-add_markers(marks, newmap(solr_request(2, "ncbi"), "ncbi"))
+add_markers(lifemap=newmap(solr_request(2, "taxid", "ncbi")), "ncbi")
 
 }

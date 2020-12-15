@@ -3,14 +3,15 @@
 #' If there are taxids which do not exist in the chosen map, prints the unfound
 #' taxids.
 #'
-#' @param data_sub a dataframe resultaing from a JSON query
-#' @param taxids a vector of numeric correspondong to taxids
+#' @param data_sub a dataframe resulting from a JSON query
+#' @param taxids a vector of numeric corresponding to taxids
 #' @param i a numeric tracking the position of the taxids
 #'
 #' @return TRUE
 #'
 #' @export
 #'
+#'@examples library(jsonlite)
 #'@examples map_and_data(fromJSON("http://lifemap-ncbi.univ-lyon1.fr/solr/taxo/select?q=taxid:(2%209443%202087)&wt=json&rows=1000"), c(2,9443,2087), 1)
 #'
 map_and_data <- function(data_sub, taxids, i){
@@ -29,12 +30,12 @@ map_and_data <- function(data_sub, taxids, i){
       print("found all")
     }
   }
-  else if (i > 100){
+  else if (i >= 101){
     # if the list of taxid is longer than 100 and there are less than 100 taxids left
-    if (data_sub[["response"]][["numFound"]] != (length(taxids) - i)){
+    if (data_sub[["response"]][["numFound"]] != (length(taxids) - (i-1))) {
       print("couldn't find following taxids:")
       for (m in i:(length(taxids))){
-       if ((taxids[m] %in% data_sub[["response"]][["docs"]][1][["taxid"]]) == FALSE)
+        if ((taxids[m] %in% data_sub[["response"]][["docs"]][1][["taxid"]]) == FALSE)
           print(taxids[m])
       }
     }
@@ -56,4 +57,3 @@ map_and_data <- function(data_sub, taxids, i){
   }
   return(TRUE)
 }
-

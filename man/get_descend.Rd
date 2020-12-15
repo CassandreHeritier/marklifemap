@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_descend.R
 \name{get_descend}
 \alias{get_descend}
-\title{get_descend}
+\title{Get descend}
 \usage{
 get_descend(taxids)
 }
@@ -10,10 +10,11 @@ get_descend(taxids)
 \item{taxids}{a vector of taxids}
 }
 \value{
-DATA a vector of taxids
+descend a vector of taxids
 }
 \description{
-Get a vector of taxids from maximum 1000 of the descendant from each taxid in input
+Get a vector of taxids from maximum 1000 of the descendants from each taxid
+in input.
 }
 \examples{
 get_descend(2)

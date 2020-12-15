@@ -1,7 +1,6 @@
-# Marklifemap, a tool for visualizing your own data on the lifemap. 
+# Marklifemap is a tool to visualizing your own data on a lifemap. 
 
-**Marklifemap** allows a user to visualize his own dataset in the lifemap, accessible from http://lifemap.univ-lyon1.fr/.
-
+**Marklifemap** allows you to visualize your own dataset on a lifemap version that you can choose, accessible from http://lifemap.univ-lyon1.fr/.
 
 **Marklifemap** is written in R language.
 
@@ -21,60 +20,51 @@ library("marklifemap")
 ```
 
 ## Usage
-1. Create your matrix of dataset, with a first column of taxids and a second column of data to visualize.
+1. Create your dataframe of dataset, with a first vector of taxids and vectors after of datasets to visualize.
 ```R
-data<-matrix(c(2,9443,2087,'A','B','C'), nrow=3, ncol=2) # for three taxids with a label.
+data<-data.frame(yourdataset)
 ```
-2. 
-3. 
+2. Run marklifemap with your dataset (possible options are described below).
 ```R
-
+marklifemap(data, map='ncbi', minimap=TRUE)
 ```
 >#### Options
->The phylter() function is called as follows by default: 
+>The marklifemap() function is called as follows by default: 
 >```R
->phylter(X, bvalue=0, distance="patristic", k=3, thres=0.3, Norm=TRUE, keep.species=TRUE, gene.names=NULL, test.island=TRUE, verbose=TRUE, stop.criteria=1e-5)
+>marklifemap(data, map='standard', minimap=FALSE, ascendant=FALSE, descendant=FALSE, popup="none", form="none", cluster="none")
 >```
 >Possible options are:    
->```bvalue```: If X is a list of trees, nodes with a support below 'bvalue' will be collapsed prior to the outlier detection.  
->```distance``` If X is a list of trees, type of distance used to compute the pairwise matrices for each tree. Can be "patristic" (sum of branch lengths separating tips, the default) or nodal (number of nodes separating tips).  
->```k``` Strength of outlier detection. The higher this value the less outliers detected.  
->```thres``` For the detection of complete outliers. Threshold above which genes or species are considered as complete outliers. 0.3 means that a gene (resp. species) is a complete outlier if it is detected as outlier for more than 30% of its species (resp. genes).  
->```Norm``` Should the matrices be normalized. If TRUE (the default), each matrix is normalized such that its first eigenvalie is equal to one.  
->```keep.species``` If TRUE, species are protected from being detected as complete outliers and filtered out.   
->```gene.names``` List of gene names used to rename elements in X. If NULL (the default), elements are named 1,2,..,length(X).   
->```test.island``` This should not be modified. If TRUE (the default), only the highest value in an 'island' of outliers is considered an outlier. This prevents non-outliers hitchhiked by outliers to be considered outliers themselves.   
->```verbose``` If TRUE (the default), messages are written during the filtering process to get information on what is happening  
->```stop.criteria``` The optimization stops when the gain (quality of compromise) between round *n* and round *n*+1 is smaller than this value. Default to 1e-5.  
-4. Analyze the results 
-Many functions allow looking at the outliers detected and comparing before and after:  
-```R
-summary(results) # Get a summary: nb of outliers, gain in concordance, etc.
-plot(results, "genes") # show the number of species in each gene, and how many per gene are outliers 
-plot(results, "species") # show the number of genes where each species is found, and how many are outliers
-plot2WR(results) # compare before and after genes x species matrices, highlighting missing data and outliers identified. 
-plotDispersion(results) # plot the dispersion of data before and after outlier removal. One dot represents one gene x species association.
-plotRV(results) # plot the genes x genes matrix showing pairwise correlation between genes. 
-plotopti(results) #plot optimization scores during optimization.
-```
-5. Save the results
-Save the results of the analysis to an external file, for example to perform cleaning on raw alignments based the results from phylter. 
-```R
-write.phylter(results, file="phylter.out")
-```
-## Example
-A fungal dataset comprised of  246 genes for 21 species (Aguileta *et al.* 2008) is included in the package. To load it and test **phylter** on it: 
-```R
-data(fungi)
-results<-phylter(fungi, distance="nodal", thres=0.2) #for example
-```
-   
-   
----
-### references
-Abdi, H., Valentin, D., O’Toole, A.J., & Edelman, B. (2005). DISTATIS: The analysis of multiple distance matrices. Proceedings of the IEEE Computer Society: International Conference on Computer Vision and Pattern Recognition. (San Diego, CA, USA). pp. 42–47. https://www.utdallas.edu/~herve/abdi-distatis2005.pdf
+>```map```: You can choose the map among 'standard', 'ncbi', 'virus' and 'french' version.  
+>```minimap```: If minimap is TRUE, another map is opened in the window, to view where you are in the tree.  
+>```ascendant```: If ascendant is TRUE, all of ascendants of the taxids are shown on the lifemap.  
+>```descendant```: If descendant is TRUE, all of descendants of the taxids are shown on the lifemap.  
+>```popup```: You can choose the type of popup you want to view among 'dataframe' (your data are directly shown), 'sci_info' (to view informations from the Solr database about your taxids) and 'none'.  
+>```form```: You can choose the form of markers among 'dataframe' (markers will be proportionals to your data numbers), 'nbdesc' (with informations from Solr) and 'none'.   
+>```cluster```: You can choose the type of cluster among 'sum' and 'none'.   
+3. See your lifemap with markers
+A window appears with your lifemap, enjoy !
 
-G Aguileta, S Marthey, H Chiapello, M.-H Lebrun, F Rodolphe, E Fournier, A Gendrault-Jacquemard, T Giraud, Assessing the Performance of Single-Copy Genes for Recovering Robust Phylogenies, Systematic Biology, Volume 57, Issue 4, August 2008, Pages 613–627, https://doi.org/10.1080/10635150802306527
+## Initialization  
+To understand the functions under marklifemap with a dataset.
+```R
+taxids<-c(2,9443,2087) # example of taxids to target : Primates, Bacteria and Anaeroplasma abactoclasticum
+popups<-c('First taxid','Second taxid','Third taxid') # example of popups that you want to visualize on each taxon (with order)
+sizes<-c(300,20,109) # example of sizes you want for each marker / taxon
+data<-data.frame(list(taxids, popups, sizes)) # example of a set of data : taxids in first vector, popups in second vector, and sizes of markers in third vector
+
+solr_request(taxids) # function that calls database Solr, you can find names, coordinates and number of descendants of each taxon
+newmap() # create a standard map
+newmap(map='virus') # with virusmap
+marklifemap(data, map='ncbi', popup='dataframe', form='dataframe') # an example of lifemap with markers
+```
+
+## Example  
+```R
+marklifemap(data, map='ncbi', popup='dataframe', form='dataframe') # with a set of data initialized as before
+```
+---
+### References
+Damien DE VIENNE
 
 ---
 >For comments, suggestions and bug reports, please open an issue on this github repository.

@@ -1,6 +1,7 @@
 #' Newmap
 #'
-#' Create a new lifemap according to the chosen map.
+#' Function to create a new lifemap according to the chosen map.
+#' Keeps coordinates of taxons in memory if there are.
 #'
 #' @param coordinates of taxids, the result of Solr request; NULL by default
 #' @param map the version of lifemap among 'standard', 'ncbi', 'french' and

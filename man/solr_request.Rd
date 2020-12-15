@@ -4,18 +4,21 @@
 \alias{solr_request}
 \title{Solr request}
 \usage{
-solr_request(taxids, map = "standard")
+solr_request(taxids, type = "taxid", map = "standard")
 }
 \arguments{
 \item{taxids}{a vector of taxids}
 
+\item{type}{a character string for the type of data used}
+
 \item{map}{a character string for a lifemap, "standard" by default}
 }
 \value{
-coordinates
+coordinates of each taxid
 }
 \description{
-Solr request
+Function to do a request from the database Solr to get the coordinates
+of each taxon (taxids given).
 }
 \examples{
 solr_request(c(2,9443,2087), map='ncbi')

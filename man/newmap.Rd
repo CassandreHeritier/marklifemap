@@ -16,7 +16,8 @@ newmap(coordinates = NULL, map = "standard")
 lifemap
 }
 \description{
-Create a new lifemap according to the chosen map.
+Function to create a new lifemap according to the chosen map.
+Keeps coordinates of taxons in memory if there are.
 }
 \examples{
 newmap(map='virus')

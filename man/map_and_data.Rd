@@ -7,9 +7,9 @@
 map_and_data(data_sub, taxids, i)
 }
 \arguments{
-\item{data_sub}{a dataframe resultaing from a JSON query}
+\item{data_sub}{a dataframe resulting from a JSON query}
 
-\item{taxids}{a vector of numeric correspondong to taxids}
+\item{taxids}{a vector of numeric corresponding to taxids}
 
 \item{i}{a numeric tracking the position of the taxids}
 }
@@ -21,6 +21,7 @@ If there are taxids which do not exist in the chosen map, prints the unfound
 taxids.
 }
 \examples{
+library(jsonlite)
 map_and_data(fromJSON("http://lifemap-ncbi.univ-lyon1.fr/solr/taxo/select?q=taxid:(2\%209443\%202087)&wt=json&rows=1000"), c(2,9443,2087), 1)
 
 }

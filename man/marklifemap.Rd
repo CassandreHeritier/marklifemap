@@ -6,6 +6,7 @@
 \usage{
 marklifemap(
   data,
+  type = "taxid",
   map = "standard",
   minimap = FALSE,
   ascendant = FALSE,
@@ -18,7 +19,11 @@ marklifemap(
 \arguments{
 \item{data}{a data.frame with taxids in vector 1 and data to view in vectors after}
 
+\item{type}{a character string to choose the type of data used for solr_request}
+
 \item{map}{a character string, corresponding to a basemap among 'standard', virus', 'ncbi' and 'french' version of lifemap}
+
+\item{minimap}{a character string to choose of the minimap should be displayed}
 
 \item{ascendant}{a boolean to choose the display of ascendant groups}
 
@@ -31,12 +36,14 @@ marklifemap(
 \item{cluster}{a character sting to choose the type of cluster among 'sum' and 'none'; 'none' by default}
 }
 \value{
-mark_lifemap
+mark_lifemap the lifemap with markers
 }
 \description{
 Add markers from user's data on the lifemap.
+Tool to visualize your own dataset on the lifemap, for chosen taxons.
 }
 \examples{
-marklifemap(data.frame(list(c(2,9443,2087),c('A','B','C'),c(300,20,109))), 'ncbi')
+marklifemap(data.frame(list("taxid"=c(2,9443,2087),
+"name"=c('A','B','C'),"nbdesc"=c(300,20,109))), map='ncbi')
 
 }

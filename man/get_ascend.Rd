@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_ascend.R
 \name{get_ascend}
 \alias{get_ascend}
-\title{get_ascend}
+\title{Get ascend}
 \usage{
 get_ascend(taxids)
 }
@@ -10,10 +10,11 @@ get_ascend(taxids)
 \item{taxids}{a vector of taxids}
 }
 \value{
-DATA a vector of taxids
+ascend a vector of taxids
 }
 \description{
-Get a vector of taxids from maximum 1000 of the ascendant from each taxid in input
+Get a vector of taxids from maximum 1000 of the ascendants from each taxid
+in input.
 }
 \examples{
 get_ascend(2)

@@ -2,8 +2,7 @@
 % Please edit documentation in R/add_minimap.R
 \name{add_minimap}
 \alias{add_minimap}
-\title{add_minimap
-adds a minimap}
+\title{Add minimap}
 \usage{
 add_minimap(lifemap, map = "standard")
 }
@@ -13,11 +12,11 @@ add_minimap(lifemap, map = "standard")
 \item{map}{a character string for a lifemap, "standard" by default}
 }
 \value{
-withMiniMap
+with_minimap the lifemap with the minimap
 }
 \description{
-add_minimap
-adds a minimap
+Function to add a little map at the right top of the window, to see
+where you are navigating on the lifemap.
 }
 \examples{
 add_minimap(newmap())
