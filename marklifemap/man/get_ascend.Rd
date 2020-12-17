@@ -10,13 +10,12 @@ get_ascend(taxids)
 \item{taxids}{a vector of taxids}
 }
 \value{
-ascend a vector of taxids
+A vector of taxid (numeric) summarizing the ancestors of the groups.
 }
 \description{
-Get a vector of taxids from maximum 1000 of the ascendants from each taxid
-in input.
+Get a vector of taxid (numeric) from maximum 1000 of the ascendants from each taxid in input.
 }
 \examples{
-get_ascend(2)
+get_ascend(2087)
 
 }

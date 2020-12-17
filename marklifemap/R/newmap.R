@@ -1,13 +1,12 @@
 #' Newmap
 #'
-#' Function to create a new lifemap according to the chosen map.
-#' Keeps coordinates of taxons in memory if there are.
+#' Create a new lifemap according to the chosen \code{map}.
+#' Requires a connection to \url{http://lifemap.univ-lyon1.fr/} and its database.
 #'
-#' @param coordinates of taxids, the result of Solr request; NULL by default
-#' @param map the version of lifemap among 'standard', 'ncbi', 'french' and
-#' 'virus' version; 'standard' by default
+#' @param coordinates of groups, as a dataframe with a \emph{coordinate} column being the result of Solr request; NULL by default
+#' @param map a character string for the version of lifemap among 'standard', 'ncbi', 'french' and virus' version; 'standard' by default
 #'
-#' @return lifemap
+#' @return A new map widget used by \code{leaflet} and \code{marklifemap}.
 #'
 #' @import leaflet
 #'

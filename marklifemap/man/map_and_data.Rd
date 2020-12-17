@@ -4,7 +4,7 @@
 \alias{map_and_data}
 \title{Map and data}
 \usage{
-map_and_data(data_sub, taxids, i)
+map_and_data(data_sub, taxids, i, wrongs)
 }
 \arguments{
 \item{data_sub}{a dataframe resulting from a JSON query}
@@ -12,9 +12,11 @@ map_and_data(data_sub, taxids, i)
 \item{taxids}{a vector of numeric corresponding to taxids}
 
 \item{i}{a numeric tracking the position of the taxids}
+
+\item{wrongs}{a vector of unfound taxids}
 }
 \value{
-TRUE
+a vector of uncorresponding taxid
 }
 \description{
 If there are taxids which do not exist in the chosen map, prints the unfound
@@ -22,6 +24,6 @@ taxids.
 }
 \examples{
 library(jsonlite)
-map_and_data(fromJSON("http://lifemap-ncbi.univ-lyon1.fr/solr/taxo/select?q=taxid:(2\%209443\%202087)&wt=json&rows=1000"), c(2,9443,2087), 1)
+map_and_data(fromJSON("http://lifemap-ncbi.univ-lyon1.fr/solr/taxo/select?q=taxid:(2\%209443\%202087)&wt=json&rows=1000"), c(2,9443,2087), 1, c(2,9443))
 
 }

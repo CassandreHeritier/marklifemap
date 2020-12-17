@@ -1,14 +1,13 @@
 #' Add markers
 #'
-#' Function to add markers on the lifemap, with various options for form, cluster and popup.
+#' Add markers to a lifemap using \code{leaflet}. Options \code{popup}, \code{form} and \code{cluster} allow to change graphic representation.
 #'
-#' @param marks data.frame of markers to view on the lifemap given by the user;
-#' NULL by default
-#' @param lifemap the map generated
-#' @param radius the size of markers
-#' @param popup if user wants popups ; "none" by default
-#' @param form if user wants special form ; "none" by default
-#' @param cluster if user wants cluster ; "none" by default
+#' @param marks dataframe of markers to view on the lifemap given by the user ; NULL by default
+#' @param lifemap a map widget created from \code{leaflet()}, moddified by \code{add_markers()}
+#' @param radius a numeric for the size of markers if form use a circle
+#' @param popup a character string used for the name of the popup option when clicking markers ; "none" by default
+#' @param form  a character string used for the name of the shape option of the marker ; "none" by default
+#' @param cluster a character string used for the name of the cluster options of markers; "none" by default
 #'
 #' @return mark_lifemap the lifemap with markers
 #'
@@ -16,7 +15,7 @@
 #'
 #' @export
 #'
-#' @examples add_markers(lifemap=newmap(solr_request(2, "taxid", "ncbi")), "ncbi")
+#' @examples add_markers(lifemap=newmap(solr_request(2, "taxid", "ncbi")))
 #'
 add_markers <- function(marks=NULL, lifemap, radius=10, popup="none",form="none",cluster="none"){
   switch(popup, # choice of popup
@@ -40,6 +39,7 @@ add_markers <- function(marks=NULL, lifemap, radius=10, popup="none",form="none"
          "sum"={ # if sum of groups is chosen
            clusterOptions=markerClusterOptions() # cluster will display the number of groups clustered
          },
+         #new cluster options can be added here, as a new switch case
          "none"={ # if cluster is none, there is no cluster
            clusterOptions=NULL
          }

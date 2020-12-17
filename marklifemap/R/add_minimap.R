@@ -1,12 +1,11 @@
 #' Add minimap
 #'
-#' Function to add a little map at the right top of the window, to see
-#' where you are navigating on the lifemap.
+#' Function to add a little map at the right top of the window, to see where you are navigating on the lifemap.
 #'
 #' @param lifemap a lifemap object
 #' @param map a character string for a lifemap, "standard" by default
 #'
-#' @return with_minimap the lifemap with the minimap
+#' @return A map widget with an added minimap.
 #'
 #' @import leaflet
 #'

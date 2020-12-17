@@ -13,8 +13,7 @@ get_descend(taxids)
 descend a vector of taxids
 }
 \description{
-Get a vector of taxids from maximum 1000 of the descendants from each taxid
-in input.
+Get a vector of taxids (numeric) from maximum 1000 of the descendants from each taxid in input.
 }
 \examples{
 get_descend(2)

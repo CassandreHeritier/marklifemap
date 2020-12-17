@@ -12,11 +12,10 @@ add_minimap(lifemap, map = "standard")
 \item{map}{a character string for a lifemap, "standard" by default}
 }
 \value{
-with_minimap the lifemap with the minimap
+A map widget with an added minimap.
 }
 \description{
-Function to add a little map at the right top of the window, to see
-where you are navigating on the lifemap.
+Function to add a little map at the right top of the window, to see where you are navigating on the lifemap.
 }
 \examples{
 add_minimap(newmap())

@@ -41,6 +41,8 @@ marklifemap(data, map='ncbi', minimap=TRUE)
 >```popup```: You can choose the type of popup you want to view among 'dataframe' (your data are directly shown), 'sci_info' (to view informations from the Solr database about your taxids) and 'none'.  
 >```form```: You can choose the form of markers among 'dataframe' (markers will be proportionals to your data numbers), 'nbdesc' (with informations from Solr) and 'none'.   
 >```cluster```: You can choose the type of cluster among 'sum' and 'none'.   
+>```output```: You can choose to display the search result of the request from Solr, taping 'file' to create a file in your working directory, 'merge_file' to do the same but adding your dataset, 'console' to display in the console directly and 'merge_console' with your dataset again.  
+>```filename```: If 'file' in 'output' option was given, you can choose the filename.  
 3. See your lifemap with markers
 A window appears with your lifemap, enjoy !
 
@@ -60,11 +62,12 @@ marklifemap(data, map='ncbi', popup='dataframe', form='dataframe') # an example 
 
 ## Example  
 ```R
-marklifemap(data, map='ncbi', popup='dataframe', form='dataframe') # with a set of data initialized as before
+marklifemap(data, map='ncbi', popup='dataframe', form='dataframe', cluster='sum', output='file') # with a set of data initialized as before
 ```
 ---
 ### References
 Damien DE VIENNE
+Package 'leaflet'
 
 ---
 >For comments, suggestions and bug reports, please open an issue on this github repository.
