@@ -49,20 +49,29 @@ A window appears with your lifemap, enjoy !
 ## Initialization  
 To understand the functions under marklifemap with a dataset.
 ```R
-taxids<-c(2,9443,2087) # example of taxids to target : Primates, Bacteria and Anaeroplasma abactoclasticum
-popups<-c('First taxid','Second taxid','Third taxid') # example of popups that you want to visualize on each taxon (with order)
-sizes<-c(300,20,109) # example of sizes you want for each marker / taxon
-data<-data.frame(list(taxids, popups, sizes)) # example of a set of data : taxids in first vector, popups in second vector, and sizes of markers in third vector
+### create a set of data in data.frame
+# first vector : example of taxids to target, Primates, Bacteria and Anaeroplasma abactoclasticum
+# second vector : example of popups that you want to visualize on each taxon (with order)
+# third vector : example of number of descendants you want to impose by taxon
+# on a NCBI lifemap version
+data<-data.frame(list("taxid"=c(2,9443,2087),"name"=c('FIRST','SECOND','THIRD'),"nbdesc"=c(300,20,109)))
 
+### functions called
+# get taxids in a vector
+taxids=c(2,9443,2087)
 solr_request(taxids) # function that calls database Solr, you can find names, coordinates and number of descendants of each taxon
 newmap() # create a standard map
 newmap(map='virus') # with virusmap
+
+## principal function
 marklifemap(data, map='ncbi', popup='dataframe', form='dataframe') # an example of lifemap with markers
 ```
 
 ## Example  
 ```R
+# with options 'cluster' and 'output'
 marklifemap(data, map='ncbi', popup='dataframe', form='dataframe', cluster='sum', output='file') # with a set of data initialized as before
+marklifemap(data, map='ncbi', popup='sci_info', form='nbdesc', minimap=TRUE) # with a minimap and popup informations from Solr
 ```
 ---
 ### References
