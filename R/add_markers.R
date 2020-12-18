@@ -12,9 +12,11 @@
 #' @return mark_lifemap the lifemap with markers
 #'
 #' @import leaflet
+#' @import curl
 #'
 #' @export
 #'
+#' @examples library(jsonlite)
 #' @examples add_markers(lifemap=newmap(solr_request(2, "taxid", "ncbi")))
 #'
 add_markers <- function(marks=NULL, lifemap, radius=10, popup="none",form="none",cluster="none"){

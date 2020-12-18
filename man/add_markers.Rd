@@ -33,6 +33,7 @@ mark_lifemap the lifemap with markers
 Add markers to a lifemap using \code{leaflet}. Options \code{popup}, \code{form} and \code{cluster} allow to change graphic representation.
 }
 \examples{
+library(jsonlite)
 add_markers(lifemap=newmap(solr_request(2, "taxid", "ncbi")))
 
 }

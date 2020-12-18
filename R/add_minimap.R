@@ -20,8 +20,8 @@ add_minimap <- function(lifemap, map='standard'){
            lifemap<-addTiles(lifemap, tiles, group = "ncbi version")
          },
          "virus"={
-           tuiles="http://virusmap.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png"
-           lifemap<-addTiles(lifemap, tuiles, group = "virus version")
+           tiles="http://virusmap.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png"
+           lifemap<-addTiles(lifemap, tiles, group = "virus version")
          },
          "standard"={
            tiles="http://lifemap.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png"

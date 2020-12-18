@@ -49,6 +49,7 @@ Create a Lifemap using \code{leaflet()} and add markers from \code{data} dependi
 Requires a connexion to \url{http://lifemap.univ-lyon1.fr/} and its database.
 }
 \examples{
-marklifemap(data.frame(list("taxid"=c(2,9443,2087),"name"=c('A','B','C'),"nbdesc"=c(300,20,109))), map='ncbi')
+marklifemap(data.frame(list("taxid"=c(2,9443,2087),"name"=c('A','B','C'),
+"nbdesc"=c(300,20,109))), map='ncbi')
 
 }

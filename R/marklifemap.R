@@ -22,9 +22,10 @@
 #'
 #' @export
 #'
-#' @examples marklifemap(data.frame(list("taxid"=c(2,9443,2087),"name"=c('A','B','C'),"nbdesc"=c(300,20,109))), map='ncbi')
+#' @examples marklifemap(data.frame(list("taxid"=c(2,9443,2087),"name"=c('A','B','C'),
+#' @examples "nbdesc"=c(300,20,109))), map='ncbi')
 #'
-marklifemap<-function(data, type="taxid", map='standard', minimap=FALSE, ascendant=FALSE, descendant=FALSE, popup="none", form="none", cluster="none",output=FALSE, filename="result.csv"){
+marklifemap<-function(data, type="taxid", map='standard', minimap=FALSE, ascendant=FALSE, descendant=FALSE, popup="none", form="none", cluster="none", output=FALSE, filename="result.csv"){
   # if user gives a data.frame
   if (typeof(data)=="list"){
     datanames<-colnames(data)
@@ -34,7 +35,7 @@ marklifemap<-function(data, type="taxid", map='standard', minimap=FALSE, ascenda
   }
   # if user gives a vector of information
   else {
-    taxids<-data
+    info<-data
   }
   coordinates<-solr_request(info,type, map)
   # option for descendants
