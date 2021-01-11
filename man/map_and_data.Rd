@@ -24,6 +24,4 @@ taxids.
 }
 \examples{
 library(jsonlite)
-map_and_data(fromJSON("http://lifemap-ncbi.univ-lyon1.fr/solr/taxo/select?q=taxid:(2%209443%202087)&wt=json&rows=1000"), c(2,9443,2087), 1, c(2,9443))
-  
 }
